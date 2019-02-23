@@ -3,7 +3,6 @@
 // 자료구조에서 배운 큐의 성질 이용 (링버퍼, front, rear)
 
 import java.util.Scanner;
-
 public class BJ1966 {
 	public static void main (String[] arg) {
 		Scanner stdIn = new Scanner(System.in);

@@ -1,4 +1,4 @@
-// 1964번 
+// 1963번 
 // 소수 경로 
 // BFS
 // 소수 (Prime)
@@ -7,7 +7,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
 public class BJ1963 {
 	// 해당 숫자가 소수인지 아닌지 를 저장하는 배열 
 	static boolean[] isNotPrime = new boolean[10000];

@@ -47,7 +47,7 @@ public class BJ1707 {
 			int h = q.remove();
 			for(int i : adj[h]) {
 				if(visited[i] == 0) {
-					visited[i] = 3- visited[h];
+					visited[i] = 3 - visited[h];
 					q.add(i);
 				}else if(visited[i]==visited[h]) {
 					return false;

@@ -7,7 +7,6 @@
 // https://idea-sketch.tistory.com/29
 	
 import java.util.Scanner;
-
 public class BJ2580 {
 	static int[][] sq;
 	// 각 행,열, 3x3 사각형 안에 해당 숫자가 있는지 여부 
@@ -27,7 +26,6 @@ public class BJ2580 {
 				ckSquare[square(i,j)][sq[i][j]] = true;
 			}
 		}
-		
 		fill(0);		
 	}
 	// square

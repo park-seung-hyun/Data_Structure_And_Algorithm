@@ -27,6 +27,8 @@ public class BJ1260 {
 		adj = new int[n+1][n+1];
 		adj2 =  (ArrayList<Integer>[]) new ArrayList[n+1];
 		
+		// 인접 리스트의 경우 각 배열의 원소마다 
+		// 리스트를 생성해줘야됨. 
 		for(int i=1;i<=n;i++) {
 			adj2[i] = new ArrayList<Integer>();
 		}

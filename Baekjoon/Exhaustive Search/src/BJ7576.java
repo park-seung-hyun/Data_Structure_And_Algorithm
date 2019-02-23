@@ -10,7 +10,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
 public class BJ7576 {
 	static int m;
 	static int n;

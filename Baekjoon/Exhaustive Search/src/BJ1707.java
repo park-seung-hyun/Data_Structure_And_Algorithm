@@ -12,7 +12,6 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
-	
 public class BJ1707 {
 	
 	static int[] visited;

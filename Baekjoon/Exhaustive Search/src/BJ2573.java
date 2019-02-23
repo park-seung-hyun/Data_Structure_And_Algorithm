@@ -5,7 +5,6 @@
 // https://mygumi.tistory.com/192
 
 import java.util.Scanner;
-
 public class BJ2573 {
 	static int w;
 	static int h;

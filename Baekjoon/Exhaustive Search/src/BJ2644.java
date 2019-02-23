@@ -5,7 +5,6 @@
 // 2573번과 유사 
 
 import java.util.Scanner;
-
 public class BJ2644 {
 	static int[][] m; // 관계를 표현한 인접 행렬 
 	static boolean[] visited; // 방문 여부 

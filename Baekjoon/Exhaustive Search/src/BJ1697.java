@@ -2,14 +2,12 @@
 // 숨바꼭질 
 // BFS
 // BFS, DFS 언제 사용하는지 공부하기 
-// 개인적인 생각으로는 최솟값을 구하는 문제로 
-// 낮은 레벨 구간에서 답을 구할 수 있음 -> 답이 가로로 퍼져서 존재 
-// 때문에 깊게 들어갈 이유가 없음 -> BFS 사용 
+// 최소 비용 문제이므로 BFS 
+// 조건으로 모든 가중치가 1로 같아야함. 
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
 public class BJ1697 {
 	static int k;
 	// check
