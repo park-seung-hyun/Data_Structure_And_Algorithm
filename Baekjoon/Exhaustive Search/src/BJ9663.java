@@ -7,7 +7,6 @@
 // https://mygumi.tistory.com/199
 
 import java.util.Scanner;
-
 public class BJ9663 {
 	static int n;
 	static int[][] ar;

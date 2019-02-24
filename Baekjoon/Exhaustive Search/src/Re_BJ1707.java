@@ -12,6 +12,8 @@ import java.util.Scanner;
 public class Re_BJ1707 {
 	static ArrayList<Integer>[] ala;
 	static int[] visited;
+	static boolean flag = true; // dfs용 
+	
 	public static void main (String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 		int t = stdIn.nextInt();
@@ -30,37 +32,40 @@ public class Re_BJ1707 {
 				ala[b].add(a);
 			}
 			isBi();
+			flag = true;
 		}
 	}
 	static void isBi() {
+		
 		for(int i=1;i<ala.length;i++) {
 			for(int j=0;j<ala[i].size();j++) {
 				if(visited[ala[i].get(j)] == 0) {
-					if(!bfs(ala[i].get(j))) {
-						System.out.println("NO");
-						return;
-					}
-//					if(!dfs(ala[i].get(j), 1)) {
-//						System.out.println(Arrays.toString(visited));
+//					if(!bfs(ala[i].get(j))) {
 //						System.out.println("NO");
 //						return;
 //					}
+					dfs(ala[i].get(j), 1);
+					if(flag == false) {
+						System.out.println("NO");
+						return;
+					}
 				}
 			}
 		}
 		System.out.println("YES");
 	}
-//	static boolean dfs(int n, int c) {
-//		visited[n] = 3-c;
-//		for(int i: ala[n]) {
-//			if(visited[i] == 0) {
-//				return dfs(i, visited[n]);
-//			}
-//			if(visited[i] == visited[n])
-//				return false;
-//		}
-//		return true;
-//	}
+	static void dfs(int n, int c) {
+		if(flag == false)
+			return;
+		visited[n] = 3-c;
+		for(int i: ala[n]) {
+			if(visited[i] == 0) {
+				dfs(i, visited[n]);
+			}
+			if(visited[i] == visited[n])
+				flag = false;
+		}
+	}
 	static boolean bfs(int n) {
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.add(n);

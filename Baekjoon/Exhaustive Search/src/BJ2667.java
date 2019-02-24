@@ -4,7 +4,6 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class BJ2667 {
 	static int[][] ar;
 	static int[][] visited;

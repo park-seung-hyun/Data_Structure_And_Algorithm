@@ -9,7 +9,6 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
-	
 public class BJ2529 {
 	static boolean[] visited = new boolean[10]; // 0~9
 	static char[] c;
