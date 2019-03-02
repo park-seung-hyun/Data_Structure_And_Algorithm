@@ -5,7 +5,6 @@
 // https://baked-corn.tistory.com/117
 	
 import java.util.Scanner;
-
 public class BJ9095 {
 	// 해당 인덱스가 k일 경우 만들 수 있는 방법 수를 저장한 배열 
 	static int[] memory;

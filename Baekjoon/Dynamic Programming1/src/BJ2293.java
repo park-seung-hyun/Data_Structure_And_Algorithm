@@ -6,7 +6,6 @@
 // http://coding-all.tistory.com/2
 
 import java.util.Scanner;
-
 public class BJ2293 {
 	public static void main(String[] args) {
 		// 입출력 
