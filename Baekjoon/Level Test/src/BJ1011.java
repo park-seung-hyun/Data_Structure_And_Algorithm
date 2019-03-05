@@ -6,7 +6,6 @@
 // https://oper6210.tistory.com/34
 
 import java.util.Scanner;
-
 public class BJ1011 {
 	public static void main(String[] args) {
 		// 입출력 

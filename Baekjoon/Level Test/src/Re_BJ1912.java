@@ -1,11 +1,12 @@
-// 1912번  
-// 연속합
+// 1912번 (복습)
+// 연속합 
+// 동적 계획법 (Dynamic Programming) 
 
 import java.util.Scanner;
-public class BJ1912 {
+public class Re_BJ1912 {
 	static int[] ar;
 	static int[] d;
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 		int n = stdIn.nextInt();
 		ar = new int[n];
@@ -16,17 +17,18 @@ public class BJ1912 {
 		solve(n);
 	}
 	static void solve(int n) {
-		for(int i=0;i<n;i++) d[i] = ar[i];
+		int max = ar[0];
+		d[0] = ar[0];
 		for(int i=1;i<n;i++) {
-			if(d[i] < d[i-1] + ar[i])
-				d[i] = d[i-1] + ar[i];
-		}
-		int max = d[0];
-		for(int i=1;i<n;i++) {
+			d[i] = max(ar[i], d[i-1] + ar[i]);
+			
 			if(max < d[i])
 				max = d[i];
 		}
+//		System.out.println(Arrays.toString(d));
 		System.out.println(max);
 	}
+	static int max(int a, int b) {
+		return a>b?a:b;
+	}
 }
-

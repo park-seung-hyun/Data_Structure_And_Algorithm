@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
 public class BJ2623 {
 	static int[] seq;
 	static ArrayList<Integer> result = new ArrayList<Integer>(); 

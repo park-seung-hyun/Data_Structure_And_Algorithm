@@ -7,7 +7,6 @@
 // http://janghw.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-Divide-and-Conquer-%EB%B6%84%ED%95%A0%EC%A0%95%EB%B3%B5 
 
 import java.util.Scanner;
-
 // 1. 메모리를 엄청 차지하는 멍청한 코드
 //public class BJ1780 {
 //	static int[] result = new int[3];

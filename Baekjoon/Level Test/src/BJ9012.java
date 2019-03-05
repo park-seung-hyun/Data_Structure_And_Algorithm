@@ -3,7 +3,6 @@
 
 import java.util.Scanner;
 import java.util.Stack;
-
 public class BJ9012 {
 	public static void main (String[] args) {
 		// 입출력 
