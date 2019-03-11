@@ -6,7 +6,6 @@
 // https://mygumi.tistory.com/254
 
 import java.util.Scanner;
-
 public class BJ2624 {
 	static int[][] coin;
 	static int[][] dp = new int[10001][101];
@@ -25,6 +24,7 @@ public class BJ2624 {
 		}
 		
 		changeCoin(T,k);
+		
 	}
 	// changeCoin 
 	// 동적 계획법 
@@ -47,5 +47,11 @@ public class BJ2624 {
 			}
 		}
 		System.out.println(dp[m][n]);
+//		for(int i=0;i<=m;i++) {
+//			for(int j=0;j<=n;j++) {
+//				System.out.printf("%d ", dp[i][j]);
+//			}
+//			System.out.println();
+//		}
 	}
 }

@@ -3,13 +3,12 @@
 // 이진 트리 (Binary Tree)
 // 중위 순회 (In-order Traversal)
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 // 이진 트리 (Binary Tree) 설명 잘되어 있는 블로그 
 // https://songeunjung92.tistory.com/27?category=155475
 // https://wooooooak.github.io/algorithm/2018/12/05/%EB%B0%B1%EC%A4%802250%EB%AC%B8%EC%A0%9C/
 
+import java.util.Arrays;
+import java.util.Scanner;
 public class BJ2250 {
 	static int x = 1;
 	static int y = 1;

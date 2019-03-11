@@ -4,7 +4,6 @@
 
 import java.util.Arrays;
 import java.util.Scanner;
-
 public class BJ9007 {
 	public static void main (String[] args) {
 		// 입출력 

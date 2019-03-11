@@ -4,7 +4,6 @@
 // 소수(Prime) 구하기 -> 좀 외우자 
 
 import java.util.Scanner;
-
 public class BJ2312 {
 	static int[] buff;
 	public static void main (String[] args) {

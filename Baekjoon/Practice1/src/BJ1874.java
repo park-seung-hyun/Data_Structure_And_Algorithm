@@ -4,7 +4,6 @@
 
 import java.util.Scanner;
 import java.util.Stack;
-
 public class BJ1874 {
 	static boolean[] check ; // +. - 저장용 배열 
 	public static void main (String[] args) {

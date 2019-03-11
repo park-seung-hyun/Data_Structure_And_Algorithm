@@ -5,7 +5,6 @@
 // https://deque.tistory.com/76
 
 import java.util.Scanner;
-
 public class BJ1016 {
 	static int sum=0;
 	static boolean[] check = new boolean[1000001];

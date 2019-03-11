@@ -8,7 +8,6 @@
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 public class BJ1967 {
 	static ArrayList<Node> tree[]; // 각 노드의 연결 관계 (양방향)
 	static boolean[] visit; // 방문 여부 -> dfs 

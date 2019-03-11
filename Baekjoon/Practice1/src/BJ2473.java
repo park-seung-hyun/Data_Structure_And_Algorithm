@@ -4,7 +4,6 @@
 // 2467번이랑 똑같음. 
 
 import java.util.Scanner;
-
 public class BJ2473 {
 	static int l1 = 0;
 	static int l2 = 0;

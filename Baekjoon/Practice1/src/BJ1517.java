@@ -7,7 +7,6 @@
 // https://his130.tistory.com/64
 	
 import java.util.Scanner;
-
 public class BJ1517 {
 	static int[] buff; // Merge Sort 작업용 배열 
 	static long count = 0; // long type (n이 500000 까지 가능..)
