@@ -106,6 +106,8 @@ public class BJ9376 {
 		}
 		System.out.println(ans);
 	}
+	// bfs 함수화 
+	// 시작점 인자로 받음. 
 	static void bfs(int w, int h, int a, int b, int[][] visited) {
 		
 		Deque<Pos> q = new LinkedList<Pos>();

@@ -3,6 +3,7 @@
 // BFS
 // solve -> 매번 키를 찾을때마다 visited를 초기화하여 다시 bfs 
 // solve2 -> 큐 26개 선언하여 키가 생길 떄 원래 큐에 삽입. 
+// 사실 wallet도 문자 배열로 선언하여 0~25에 0,1로 할 수 있음. 
 
 import java.util.ArrayList;
 import java.util.LinkedList;

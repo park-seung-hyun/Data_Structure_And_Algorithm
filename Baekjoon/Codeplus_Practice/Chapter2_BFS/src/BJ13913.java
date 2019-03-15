@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.Scanner;
 public class BJ13913 {
 	static int[] visited = new int[100001];
-	static int[] track = new int[100001];
+	static int[] track = new int[100001]; // 어디서 왔는지 저장 
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner (System.in);
 		int n = stdIn.nextInt();
@@ -30,7 +30,7 @@ public class BJ13913 {
 			if(h-1>=0 && visited[h-1] == -1) {
 				q.add(h-1);
 				visited[h-1] = visited[h] + 1;
-				track[h-1] = h;
+				track[h-1] = h; // h-1은 h에서 옴. 
 			}
 			if(h+1<=100000 && visited[h+1] == -1) {
 				q.add(h+1);
@@ -44,11 +44,11 @@ public class BJ13913 {
 			}
 		}
 		System.out.println(visited[k]);
-		trackNum(k);
+		trackNum(k); // 역추적 
 
 	}
 	static void trackNum(int n) {
-		if(n == -1) {
+		if(n == -1) { // trackNum(track[5] == -1) 일때 
 			return;
 		}
 		

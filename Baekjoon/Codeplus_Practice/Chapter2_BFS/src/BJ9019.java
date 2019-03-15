@@ -8,8 +8,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 public class BJ9019 {
-	static int[] visited = new int[10000];
-	static char[] track = new char[10000]; // 추적 
+	static int[] visited = new int[10000]; // 어디서 왔는지 저장 
+	static char[] track = new char[10000]; // 어떤 연산을 사용했는지 저장 
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 		int t = stdIn.nextInt();
@@ -49,20 +49,17 @@ public class BJ9019 {
 		trackNum(visited[n]);
 		System.out.printf("%c",track[n]);
 	}
-	static void trackNum2(int a, int b) {
+	static void trackNum2(int a, int b) { // 시작 숫자, 마지막 숫자 
 		if(a==b) {
 			return;
 		}
-		trackNum2(a, visited[b]);
-		System.out.printf("%c",track[b]);
+		trackNum2(a, visited[b]); // 여기서 visited는 어느 숫자에서 왔는지 저장하는 배열 
+		System.out.printf("%c",track[b]); // 해당 숫자가 b가 되기 위해 사용된 연산 
 	}
 	static void d(Queue<Integer> q, int h) {
-		if(h*2 < 10000 && visited[h*2] == -1) {
-			q.add(h*2);
-			visited[h*2] = h;
-			track[h*2] = 'D';
-		}
-		if(h*2>=10000 && visited[(h*2)%10000] == -1) {
+		// 구분할 이유 없음.
+		// Mod 10000 
+		if(visited[(h*2)%10000] == -1) {
 			int c = (h*2)%10000;
 			q.add(c);
 			visited[c] = h;
@@ -70,15 +67,12 @@ public class BJ9019 {
 		}
 	}
 	static void s(Queue<Integer> q, int h) {
-		if(h-1 >= 0 && visited[h-1] == -1) {
-			q.add(h-1);
-			visited[h-1] = h;
-			track[h-1] = 'S';
-		}
-		if(h==0 && visited[9999] == -1) {;
-			q.add(9999);
-			visited[9999] = h;
-			track[9999] = 'S';
+		int newh = h-1;
+		if(newh == -1) newh = 9999;
+		if(visited[newh] == -1) {
+			q.add(newh);
+			visited[newh] = h;
+			track[newh] = 'S';
 		}
 	}
 	static void l(Queue<Integer> q, int h) {

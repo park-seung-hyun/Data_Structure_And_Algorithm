@@ -29,9 +29,9 @@ public class BJ12851 {
 			if(h-1>=0 && visited[h-1] == -1) {
 				q.add(h-1);
 				visited[h-1] = visited[h] + 1;
-				count[h-1] += count[h]; 
+				count[h-1] += count[h]; // 방법 수 누적 
 			}else if(h-1>=0 && visited[h-1] == visited[h] + 1){
-				count[h-1] += count[h]; 
+				count[h-1] += count[h]; // 방법 수 누적 
 			}
 			if(h+1<=100000 && visited[h+1] == -1) {
 				q.add(h+1);

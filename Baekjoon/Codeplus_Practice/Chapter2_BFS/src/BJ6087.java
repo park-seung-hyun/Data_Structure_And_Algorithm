@@ -57,6 +57,8 @@ public class BJ6087 {
 			for(int i=0;i<4;i++) {
 				int nx = x + dx[i];
 				int ny = y + dy[i];
+				
+				// 벽 닿기 전까지 같은 방향으로 계속 진행 
 				while(nx>=0 && ny >=0 && nx<w && ny < h) {
 
 					if(map[nx][ny] == '*') {

@@ -38,8 +38,8 @@ public class BJ8111 {
 				if(visited[newNum] == 0) {
 					q.add(newNum);
 					visited[newNum] = 1;
-					track[newNum] = h;
-					number[newNum] = i;
+					track[newNum] = h; // 추적 
+					number[newNum] = i; // 해당 자리의 숫자 
 				}
 			}
 		}

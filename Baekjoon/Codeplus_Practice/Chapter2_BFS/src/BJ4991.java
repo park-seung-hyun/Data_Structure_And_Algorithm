@@ -89,7 +89,7 @@ public class BJ4991 {
 				}
 			}	
 		}
-		return visited[x2][y2]-1;
+		return visited[x2][y2] -1;
 	}
 	static void solve(int w, int h) {
 
@@ -99,6 +99,7 @@ public class BJ4991 {
 			for(int j=0;j<h;j++) {
 				if(map[i][j] == 'o') {
 					Pos2 p = new Pos2(i,j);
+					// 처음에 넣어놓은 (0,0)을 (i,j)로 대체 
 					al.set(0, p);
 				}
 				if(map[i][j] == '*') {
@@ -108,6 +109,7 @@ public class BJ4991 {
 			}
 		}
 
+		// distMap에 각 노드 사이 거리를 저장 (bfs로 최단 거리 저장)
 		int[][] distMap = new int[al.size()][al.size()];
 		for(int i=0;i<al.size();i++) {
 			for(int j =0;j<al.size();j++) {
@@ -124,10 +126,11 @@ public class BJ4991 {
 		int min = 2000000000;
 		
 		do {
+			// 시작점부터 시작 
 			int dist = distMap[0][permu[0]];
 			for(int i=0;i<al.size()-2;i++) {
-				int temp =distMap[permu[i]][permu[i+1]];;
-				if(temp == -1) {
+				int temp = distMap[permu[i]][permu[i+1]];;
+				if(temp == -1) { // 닿을 수 없는 거리면 -1 
 					System.out.println(-1);
 					return;
 				}

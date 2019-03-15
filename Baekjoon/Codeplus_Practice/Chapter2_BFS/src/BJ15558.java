@@ -50,6 +50,7 @@ public class BJ15558 {
 			
 			if(num == 1) {
 				
+				// 방문 여부 꼭 따지기 
 				if(x-1>=0 && x-1 > time && c1[x-1] == '1' && visited[x-1] == 0) {
 					q.add(new Jump(x-1, 1, time + 1));
 					visited[x-1] = 1;
