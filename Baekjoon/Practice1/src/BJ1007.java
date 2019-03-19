@@ -6,7 +6,6 @@
 // https://limkydev.tistory.com/156
 
 import java.util.Scanner;
-
 public class BJ1007 {
 	static double min;
 	public static void main (String[] args) {
@@ -26,7 +25,7 @@ public class BJ1007 {
 			min = 2000000000;
 			getMinimum(ar[i]);
 		}
-	}
+	}	
 	// getMinimum
 	// 벡터 매칭에 있는 벡터의 합의 길이의 최솟값을 구하는 함수 
 	static void getMinimum(int[][] ar) {
