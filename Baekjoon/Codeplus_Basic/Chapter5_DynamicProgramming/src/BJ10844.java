@@ -58,3 +58,35 @@ public class BJ10844 {
 		return ans%=mod;	
 	}
 }
+
+//public class BJ10844{
+//	static long[][] d;
+//	static final long mod = 1000000000;
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		d = new long[n+1][10];
+//		solve(n);
+//	}
+//	static void solve(int n) {
+//		for(int i=1;i<10;i++) d[1][i] = 1;
+//		
+//		for(int i=2;i<=n;i++) {
+//			for(int j=0;j<10;j++) {
+//				long temp = 0;
+//				if(j-1>=0)
+//					temp += d[i-1][j-1];
+//				if(j+1 <= 9)
+//					temp += d[i-1][j+1];
+//				d[i][j] = temp;
+//				d[i][j] %= mod;
+//			}
+//		}
+//		int ans = 0;
+//		for(int i=0;i<10;i++) {
+//			ans += d[n][i];
+//			ans %=mod;
+//		}
+//		System.out.println(ans);
+//	}
+//}

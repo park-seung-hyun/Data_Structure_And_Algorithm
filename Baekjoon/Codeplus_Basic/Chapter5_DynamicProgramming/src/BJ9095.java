@@ -37,3 +37,23 @@ public class BJ9095 {
 		return d[n];
 	}
 }
+//public class BJ9095{
+//	static int[] d = new int[11];
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int t = stdIn.nextInt();
+//		dp();
+//		for(int i=0;i<t;i++) {
+//			int n = stdIn.nextInt();
+//			System.out.println(d[n]);
+//		}
+//	}
+//	static void dp() {
+//		d[1] = 1;
+//		d[2] = 2;
+//		d[3] = 4;
+//		for(int i=4;i<11;i++) {
+//			d[i] = d[i-1] + d[i-2] + d[i-3];
+//		}
+//	}
+//}

@@ -53,3 +53,44 @@ public class BJ14226 {
 		}
 	}
 }
+//public class BJ14226 {
+//	static int[][] visited = new int[1001][1001];
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int S = stdIn.nextInt();
+//		
+//		Queue<Image> q = new LinkedList<Image>();
+//		q.add(new Image(1,0));
+//		while(!q.isEmpty()) {
+//			Image h = q.remove();
+//			int s = h.s;
+//			int c = h.c;
+//			if(s == S) {
+//				System.out.println(visited[s][c]);
+//				return;
+//			}
+//			
+//			if(s-1>=0 && visited[s-1][c] == 0) {
+//				q.add(new Image(s-1, c));
+//				visited [s-1][c] = visited[s][c] + 1; 
+//			}
+//			if(visited[s][s] == 0) {
+//				q.add(new Image(s, s));
+//				visited[s][s] = visited[s][c] + 1; 
+//			}
+//			if(s+c<=1000 && visited[s+c][c] == 0) {
+//				q.add(new Image(s+c, c));
+//				visited[s+c][c] = visited[s][c] + 1; 
+//			}
+//		}
+//		
+//	}
+//}
+//class Image{
+//	int s;
+//	int c;
+//	Image(int s, int c){
+//		this.s = s;
+//		this.c = c;
+//	}
+//}

@@ -2,6 +2,7 @@
 // 가장 큰 증가하는 부분 수열 
 // LIS(Longest Increasing Subsequence) 응용 
 
+import java.util.Arrays;
 import java.util.Scanner;
 public class BJ11055 {
 	static int[] ar;
@@ -32,3 +33,35 @@ public class BJ11055 {
 		System.out.println(max);
 	}
 }
+
+//public class BJ11055{
+//	static int[] s;
+//	static int[] d;
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int n= stdIn.nextInt();
+//		s = new int[n];
+//		d = new int[n];
+//		for(int i=0;i<n;i++) {
+//			s[i] = stdIn.nextInt();
+//		}
+//		solve(n);
+//	}
+//	static void solve(int n) {
+//		for(int i=0;i<n;i++) {
+//			d[i] = s[i];
+//			for(int j=0;j<i;j++) {
+//				if(s[i] > s[j] && d[i] < d[j] + s[i]) {
+//					d[i] = d[j] + s[i];
+//				}
+//			}
+//		}
+//		int ans = 0;
+//		for(int i=0;i<n;i++) {
+//			if(ans < d[i]) {
+//				ans = d[i];
+//			}
+//		}
+//		System.out.println(ans);			
+//	}
+//}

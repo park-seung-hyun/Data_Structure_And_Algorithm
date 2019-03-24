@@ -95,3 +95,79 @@ public class BJ2206 {
 		}
 	}
 }
+//public class BJ2206{
+//	static int[][] map;
+//	static int[][][] visited;
+//	static final int[] dx = {0,0,-1,1};
+//	static final int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		int m =stdIn.nextInt();
+//		map = new int[n][m];
+//		visited = new int[n][m][2];
+//		stdIn.nextLine();
+//		for(int i=0;i<n;i++) {
+//			String s= stdIn.nextLine();
+//			for(int j=0;j<m;j++) {
+//				map[i][j] = s.charAt(j) - '0'; 
+//			}
+//		}
+//		solve(n,m);
+//	}
+//	static void solve(int n,int m) {
+//		Queue<Dot> q = new LinkedList<Dot>();
+//		q.add(new Dot(0,0,false));
+//		visited[0][0][0] = 1;
+//		while(!q.isEmpty()) {
+//			Dot h = q.remove();
+//			int x = h.x;
+//			int y = h.y;
+//			boolean b = h.b;
+//			for(int i=0;i<4;i++) {
+//				int nx = x+dx[i];
+//				int ny = y+dy[i];
+//				if(nx>=0 &&  ny>=0 && nx < n&& ny <m) {
+//					if(b==false) { // 현재 상태 벽 뿌신적 없는 경우 
+//						
+//						// 다음 방이 빈칸인 경우 
+//						if((visited[nx][ny][0] == 0) && map[nx][ny] == 0) {
+//							visited[nx][ny][0] = visited[x][y][0] + 1;
+//							q.add(new Dot(nx,ny,false));
+//						}
+//						// 다음 방이 벽인 경우 
+//						if((visited[nx][ny][1] == 0) && map[nx][ny] == 1) {
+//							visited[nx][ny][1] = visited[x][y][0] + 1;
+//							q.add(new Dot(nx,ny,true));
+//						}
+//						
+//					}else { // 벽 뿌신적 있는 경우 
+//						
+//						if((visited[nx][ny][1] == 0) && map[nx][ny] == 0) {
+//							visited[nx][ny][1] = visited[x][y][1] + 1;
+//							q.add(new Dot(nx,ny,true));
+//						}
+//					}
+//				}
+//			}
+//					
+//		}
+//		int ans1 = (visited[n-1][m-1][0] == 0 ? Integer.MAX_VALUE : visited[n-1][m-1][0]);
+//		int ans2 = (visited[n-1][m-1][1] == 0 ? Integer.MAX_VALUE : visited[n-1][m-1][1]);
+//		int ans  =  ans1;
+//		if(ans > ans2) ans = ans2;
+//		System.out.println(ans == Integer.MAX_VALUE ? -1 : ans);
+//	}
+//}
+//class Dot{
+//	int x;
+//	int y;
+//	boolean b;
+//	Dot(int x, int y, boolean b){
+//		this.x = x;
+//		this.y =y;
+//		this.b = b;
+//		
+//	}
+//	
+//}

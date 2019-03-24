@@ -99,3 +99,86 @@ public class BJ1261 {
 		
 	}
 }
+
+//public class BJ1261{
+//	static int[][] map;
+//	static int[][] visited;
+//	static final int[] dx = {0,0,-1,1};
+//	static final int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int m = stdIn.nextInt();
+//		int n = stdIn.nextInt();
+//		map = new int[n][m];
+//		visited = new int[n][m];
+//		stdIn.nextLine();
+//		for(int i=0;i<n;i++) {
+//			String s = stdIn.nextLine();
+//			for(int j=0;j<m;j++) {
+//				map[i][j] = s.charAt(j) - '0';
+//			}
+//		}
+//		solve2(n,m);
+//		
+//	}
+//	static void solve(int n, int m) {
+//		ArrayDeque<Integer> dq= new ArrayDeque<Integer>();
+//		dq.add(0);
+//		visited[0][0] = 1;
+//		while(!dq.isEmpty()) {
+//			int h = dq.remove();
+//			int x = h/m;
+//			int y = h%m;
+//			for(int i=0;i<4;i++) {
+//				int nx = x +dx[i];
+//				int ny = y + dy[i];
+//				if(nx >=0 && ny >=0 && nx < n && ny <m) {
+//					if(visited[nx][ny] == 0) {	
+//						if(map[nx][ny] == 0) {
+//							dq.addFirst(nx*m + ny);
+//							visited[nx][ny] = visited[x][y];
+//						}
+//						else if(map[nx][ny] == 1) {
+//							dq.add(nx*m + ny);
+//							visited[nx][ny] = visited[x][y] + 1;
+//						}
+//					}
+//				}
+//			}
+//		}
+//		System.out.println(visited[n-1][m-1]-1);
+//	}
+//	static void solve2(int n, int m) {
+//		Queue<Integer> q1 = new LinkedList<Integer>();
+//		Queue<Integer> q2 = new LinkedList<Integer>();
+//		q1.add(0);
+//		visited[0][0] = 1;
+//		while(!q1.isEmpty()) {
+//			int h = q1.remove();
+//			int x = h/m;
+//			int y = h%m;
+//			for(int i=0;i<4;i++) {
+//				int nx = x +dx[i];
+//				int ny = y + dy[i];
+//				if(nx >=0 && ny >=0 && nx < n && ny <m) {
+//					if(visited[nx][ny] == 0) {	
+//						if(map[nx][ny] == 0) {
+//							q1.add(nx*m + ny);
+//							visited[nx][ny] = visited[x][y];
+//						}
+//						else if(map[nx][ny] == 1) {
+//							q2.add(nx*m + ny);
+//							visited[nx][ny] = visited[x][y] + 1;
+//						}
+//					}
+//				}
+//			}
+//			if(q1.isEmpty()) {
+//				q1 = q2;
+//				q2 = new LinkedList<Integer>();
+//			}
+//					
+//		}
+//		System.out.println(visited[n-1][m-1]-1);
+//	}
+//}

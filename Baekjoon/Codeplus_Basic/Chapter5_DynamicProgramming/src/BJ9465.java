@@ -38,3 +38,57 @@ public class BJ9465 {
 		return max;
 	}
 }
+//public class BJ9465{
+//	static int[][] d;
+//	static int[][] s;
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int t= stdIn.nextInt();
+//		for(int i=0;i<t;i++) {
+//			int n= stdIn.nextInt();
+//			d = new int[n+1][3];
+//			s = new int[n+1][2];
+//			for(int j=1;j<=n;j++) {
+//				s[j][0] = stdIn.nextInt();
+//			}
+//			for(int j=1;j<=n;j++) {
+//				s[j][1] = stdIn.nextInt();
+//			}
+//			solve(n);
+//		}
+//	}
+//	static void solve(int n) {
+//		
+//		d[1][0] = s[1][0];
+//		d[1][1] = s[1][1];
+//		d[1][2] = 0;
+//		
+//		for(int i=2;i<=n;i++) {
+//			
+//			int max = s[i][0] + d[i-1][1];
+//			if(max < s[i][0] + d[i-1][2])
+//				max = s[i][0] + d[i-1][2];
+//			d[i][0] = max;
+//			
+//			max = s[i][1] + d[i-1][0];
+//			if(max < s[i][1] + d[i-1][2])
+//				max = s[i][1] + d[i-1][2];
+//			d[i][1] = max;
+//			
+//			max = d[i-1][0];
+//			if(max < d[i-1][1])
+//				max = d[i-1][1];
+//			d[i][2] = max;
+//
+//		}
+//		System.out.println(getMax(d[n][0],d[n][1],d[n][2]));
+//	}
+//	static int getMax(int a, int b, int c) {
+//		int max = a;
+//		if(max < b)
+//			max = b;
+//		if(max < c)
+//			max = c;
+//		return max;
+//	}
+//}

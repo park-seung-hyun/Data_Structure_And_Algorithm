@@ -74,3 +74,41 @@ class Pair{
 		this.c = c;
 	}
 }
+//public class BJ2225{
+//	static long[][] d;
+//	static final long mod = 1000000000;
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		int k = stdIn.nextInt();
+//		d = new long[n+1][k+1];
+//		solve2(n,k);
+//	}
+//	static void solve(int n, int k) {
+//		for(int i=0;i<=n;i++) d[i][1] = 1;
+//		for(int i=2;i<=k;i++) {
+//			for(int j=0;j<=n;j++) {
+//				long sum =0;
+//				for(int m=0;m<=j;m++) {
+//					sum += d[j-m][i-1];
+//					sum %= mod;
+//				}
+//				d[j][i] = sum;
+//			}
+//		}
+//		System.out.println(d[n][k]);;
+//	}
+//	static void solve2(int n, int k) {
+//		for(int i=0;i<=n;i++) d[i][1] = 1;
+//		for(int i=0;i<=k;i++) d[0][i] = 1;
+//		
+//		for(int i=2;i<=k;i++) {
+//			for(int j=1;j<=n;j++) {
+//				d[j][i] = d[j-1][i] + d[j][i-1];
+//				d[j][i] %= mod;
+//			}
+//		}
+//		
+//		System.out.println(d[n][k]);;
+//	}
+//}

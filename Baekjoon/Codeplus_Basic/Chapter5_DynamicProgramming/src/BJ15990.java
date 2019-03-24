@@ -63,3 +63,35 @@ public class BJ15990 {
 		return (d[n][1] + d[n][2] + d[n][3])%mod;
 	}
 }
+//public class BJ15990{
+//	static long[][] d = new long[100001][3];
+//	static final long mod = 1000000009;
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int t = stdIn.nextInt();
+//		dp();
+//		for(int i=0;i<t;i++) {
+//			int n = stdIn.nextInt();
+//			long sum = 0;
+//			for(int j=0;j<3;j++) {
+//				sum += d[n][j];
+//				sum %= mod;
+//			}
+//			System.out.println(sum);
+//		}
+//	}
+//	static void dp() {
+//		int[] l = {1,0,1};
+//		d[1][0] = 1;
+//		d[2][1] = 1;
+//		d[3][0] = 1;
+//		d[3][1] = 1;
+//		d[3][2] = 1;
+//		for(int i=4;i<=100000;i++) {
+//			for(int j=0;j<3;j++) {
+//				d[i][j] = d[i-j-1][l[j]] + d[i-j-1][3-l[j]-j];
+//				d[i][j] %= mod;
+//			}
+//		}
+//	}
+//}

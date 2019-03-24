@@ -102,3 +102,102 @@ public class BJ3055 {
 		}
 	}
 }
+//public class BJ3055{
+//	static char[][] map ;
+//	static int[][] visited;
+//	static int[][] visited2;
+//	static final int[] dx = {0,0,-1,1};
+//	static final int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		int m = stdIn.nextInt();
+//		map = new char[n][m];
+//		visited = new int[n][m];
+//		visited2 = new int[n][m];
+//		stdIn.nextLine();
+//		for(int i=0;i<n;i++) {
+//			String s= stdIn.nextLine();
+//			for(int j=0;j<m;j++) {
+//				map[i][j] = s.charAt(j);
+//			}
+//		}
+//		solve(n, m);
+//	}
+//	static void solve(int n, int m) {
+//		bfs1(n,m);
+////		for(int i=0;i<n;i++) {
+////			for(int j=0;j<m;j++) {
+////				System.out.printf("%d ", visited[i][j]);
+////			}
+////			System.out.println();
+////		}
+//		bfs2(n,m);
+////		for(int i=0;i<n;i++) {
+////			for(int j=0;j<m;j++) {
+////				System.out.printf("%d ", visited2[i][j]);
+////			}
+////			System.out.println();
+////		}
+//	}
+//	static void bfs2(int n, int m) {
+//		Queue<Integer> q= new LinkedList<Integer>();
+//		for(int i=0;i<n;i++) {
+//			for(int j=0;j<m;j++) {
+//				if(map[i][j] == 'S') {
+//					q.add(i*m+j);
+//					visited2[i][j] = 1;
+//				}
+//			}
+//		}
+//		while(!q.isEmpty()) {
+//			int h = q.remove();
+//			int x = h/m;
+//			int y = h%m;
+//			if(map[x][y] == 'D') {
+//				System.out.println(visited2[x][y]-1);
+//				return;
+//			}
+//			for(int i=0;i<4;i++) {
+//				int nx = x+ dx[i];
+//				int ny = y+dy[i];
+//				if(nx>=0 && ny >=0 && nx < n && ny < m) {
+//						 // 물 차는 시간보다 빠를 경우, 물이 방문 하지 않은 경우(물이 막혀있을때)
+//						if(visited[nx][ny] > visited2[x][y] + 1 || visited[nx][ny] == 0) {
+//							q.add(nx*m+ny);
+//							visited2[nx][ny] = visited2[x][y] + 1;
+//						}
+//					}
+//				}
+//		}
+//		
+//		System.out.println("KAKTUS");		
+//	}	
+//	static void bfs1(int n, int m){
+//		Queue<Integer> q= new LinkedList<Integer>();
+//		for(int i=0;i<n;i++) {
+//			for(int j=0;j<m;j++) {
+//				if(map[i][j] == '*') {
+//					q.add(i*m+j);
+//					visited[i][j] = 1;
+//				}
+//			}
+//		}
+//		while(!q.isEmpty()) {
+//			int h = q.remove();
+//			int x = h/m;
+//			int y = h%m;
+//			for(int i=0;i<4;i++) {
+//				int nx = x+ dx[i];
+//				int ny = y+dy[i];
+//				if(nx>=0 && ny >=0 && nx < n && ny < m) {
+//					// 돌, 비버 집 아닐 경우 
+//					if(visited[nx][ny] == 0 && map[nx][ny]!= 'X' && map[nx][ny]!= 'D') {
+//						q.add(nx*m+ny);
+//						visited[nx][ny] = visited[x][y] + 1;
+//					}
+//				}
+//			}
+//		}
+//	}
+//}

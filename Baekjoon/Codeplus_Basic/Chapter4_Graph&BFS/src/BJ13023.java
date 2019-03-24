@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 public class BJ13023 {
-	static ArrayList<Integer>[] adj2;
-	static boolean[] visited;
+	static ArrayList<Integer>[] adj2; // 인접 리스트 
+	static boolean[] visited; 
 	static int max = 0;
 	static int cnt = 0;
 	public static void main (String[] args) {
@@ -14,8 +14,10 @@ public class BJ13023 {
 		int n = stdIn.nextInt();
 		int e = stdIn.nextInt();
 		
-		adj2 = (ArrayList<Integer>[] )new ArrayList[n];
+		// 인접 리스트 생성 
+		adj2 = (ArrayList<Integer>[])new ArrayList[n];
 		for(int i=0;i<n;i++) {
+			// 인접 리스트 배열의 각 원소마다 리스트 생성 
 			adj2[i] = new ArrayList<Integer>();
 		}
 		
@@ -29,7 +31,6 @@ public class BJ13023 {
 		for(int i=0;i<n;i++) {
 			Collections.sort(adj2[i]);
 		}
-		
 		System.out.println(solve(n)?1:0);
 	}
 	static boolean solve(int n) {
@@ -44,6 +45,8 @@ public class BJ13023 {
 		}
 		return (max >= 4)?true:false;
 	}
+	// 파도 타기해서 4명 이상 거칠 경우 
+	// 모든 경우 
 	static void search(int n, int p) {
 		if(max < cnt)
 			max = cnt;

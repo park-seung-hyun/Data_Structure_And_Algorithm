@@ -78,3 +78,64 @@ public class BJ7576 {
 		}
 	}
 }
+//public class BJ7576 {
+//	static int[][] map;
+//	static int[][] visited;
+//	static final int[] dx = {0,0,1,-1};
+//	static final int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int m = stdIn.nextInt();
+//		int n = stdIn.nextInt();
+//		map = new int[n][m];
+//		visited = new int[n][m];
+//		for(int i=0;i<n;i++) {
+//			for(int j=0;j<m;j++) {
+//				map[i][j] = stdIn.nextInt();
+//			}
+//		}
+//		solve(n,m);
+//	}
+//	static void solve(int n, int m) {
+//		
+//		Queue<Integer> q = new LinkedList<Integer>();
+//		for(int i=0;i<n;i++) {
+//			for(int j=0;j<m;j++) {
+//				if(map[i][j] == 1) {
+//					q.add(i*m+j);
+//					visited[i][j] = 1;
+//				}
+//			}
+//		}
+//		while(!q.isEmpty()) {
+//			int h = q.remove();
+//			int x = h/m;
+//			int y = h%m;
+//			for(int i=0;i<4;i++) {
+//				int nx = x + dx[i];
+//				int ny = y + dy[i];
+//				if(nx>=0 && ny >=0 && nx<n && ny <m) {
+//					if(visited[nx][ny] == 0 && map[nx][ny] != -1) {
+//						q.add(nx*m + ny);
+//						visited[nx][ny] = visited[x][y] +1;
+//					}
+//				}
+//			}
+//		}
+//		int max = 0;
+//		for(int i=0;i<n;i++) {
+//			for(int j=0;j<m;j++) {
+//				if(map[i][j] != -1) {
+//					if(max < visited[i][j])
+//						max = visited[i][j];
+//				}
+//				if(map[i][j] != -1 && visited[i][j] == 0) {
+//					System.out.println(-1);
+//					return;
+//				}
+//			}
+//		}
+//		System.out.println(max -1);
+//		
+//	}
+//}

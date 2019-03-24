@@ -44,3 +44,34 @@ public class BJ1699 {
 
 	}
 }
+
+//public class BJ1699{
+//	static int[] d = new int[100001];
+//	public static void main(String[] args) {
+//		Scanner stdIn=  new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		solve2();
+//		System.out.println(d[n]);
+//	}
+//	static void solve2() {
+//		for(int i=1;i<=100000;i++) {
+//			int min = Integer.MAX_VALUE;
+//			for(int j=1;j*j<=i;j++) {
+//				if(min > d[i-j*j] + 1)
+//					min = d[i-j*j] + 1;
+//			}
+//			d[i] = min;
+//		}
+//	}
+//	static void solve() { // 잘못된 방법 
+//		for(int i=1;i*i <=100000;i++) {
+//			d[i*i] = 1;
+//		}
+//		int cur = 0;
+//		
+//		for(int i=1;i<=100000;i++) {
+//			if(d[i] == 1) cur = i;
+//			d[i] = 1 + d[i-cur];
+//		}
+//	}
+//}

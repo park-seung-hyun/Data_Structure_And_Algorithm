@@ -41,7 +41,7 @@ public class BJ11724 {
 		visited[n] = true;
 		for(int i: adj[n]) {
 			if(visited[i]== false)
-				bfs(i);
+				dfs(i);
 		}
 	}
 	static void bfs(int n) {

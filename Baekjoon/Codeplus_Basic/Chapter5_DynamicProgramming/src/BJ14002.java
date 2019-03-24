@@ -50,3 +50,47 @@ public class BJ14002 {
 		return;
 	}
 }
+//public class BJ14002{
+//	static int[] s;
+//	static int[] d;
+//	static int[] t;
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		s = new int[n];
+//		for(int i=0;i<n;i++) {
+//			s[i] = stdIn.nextInt();
+//		}
+//		d = new int[n];
+//		t = new int[n];
+//		solve(n);
+//	}
+//	static void solve(int n) {
+//		for(int i=0;i<n;i++) {
+//			d[i] = 1;
+//			t[i] = -1;
+//			for(int j=0;j<i;j++) {
+//				if(s[i] > s[j] && d[i] < d[j] + 1) {
+//					d[i] = d[j] + 1;
+//					t[i] = j;
+//				}
+//			}
+//		}
+//		int ans = 0;
+//		int id = 0;
+//		for(int i=0;i<n;i++) {
+//			if(ans < d[i]) {
+//				ans = d[i];
+//				id = i;
+//			}
+//		}
+//		System.out.println(ans);
+////		System.out.println(Arrays.toString(t));
+//		track(id);
+//	}
+//	static void track(int id) {
+//		if(id == -1) return;
+//		track(t[id]);
+//		System.out.printf("%d ",s[id]);
+//	}
+//}

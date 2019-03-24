@@ -75,3 +75,68 @@ public class BJ13549 {
 		 
 	}
 }
+//
+//public class BJ13549{
+//	static int[] visited = new int[100001];
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		int k = stdIn.nextInt();
+//		ArrayDeque<Integer> dq = new ArrayDeque<Integer>();
+//		Arrays.fill(visited, -1);
+//		bfs(n,k);
+////		dq.add(n);
+////		visited[n] = 0;
+////		while(!dq.isEmpty()) {
+////			int h = dq.removeFirst();
+////			System.out.println(h);
+////			if(h == k) {
+////
+////				break;
+////			}
+////			if(h-1>=0 && visited[h-1] == -1) {
+////				dq.addLast(h-1);
+////				visited[h-1]  = visited[h] + 1;
+////			}
+////			if(h+1<=100000 && visited[h+1] == -1) {
+////				dq.addLast(h+1);
+////				visited[h+1]  = visited[h] + 1;
+////			}
+////			if(h*2<=100000 && visited[h*2] == -1) {
+////				dq.addFirst(h*2);
+////				visited[h*2]  = visited[h];
+////			}
+////		
+////		}
+//		System.out.println(visited[k]);
+//		
+//	}
+//	static void bfs(int n, int k) {
+//		Queue<Integer> q1 = new LinkedList<Integer>();
+//		Queue<Integer> q2 = new LinkedList<Integer>();
+//		q1.add(n);
+//		visited[n] = 0;
+//		while(!q1.isEmpty()) {
+//			int h = q1.remove();
+//			
+//			if(h*2 <= 100000 && visited[h*2] == -1) {
+//				q1.add(h*2);
+//				visited[h*2] = visited[h];
+//			}
+//			if(h-1 >=0 && visited[h-1] == -1) {
+//				q2.add(h-1);
+//				visited[h-1] = visited[h] + 1;
+//			}
+//			if(h+1 <=100000 && visited[h+1] == -1) {
+//				q2.add(h+1);
+//				visited[h+1] = visited[h] + 1;
+//			}
+//
+//			
+//			if(q1.isEmpty()) {
+//				q1 = q2;
+//				q2 = new LinkedList<Integer>();
+//			}
+//		}
+//	}
+//}

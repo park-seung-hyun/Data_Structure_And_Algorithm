@@ -31,3 +31,26 @@ public class BJ11727 {
 		return d[n]%10007;
 	}
 }
+//public class BJ11727{
+//	static int[] d;
+//	static final int mod = 10007;
+//	public static void main (String[] args) {
+//		Scanner stdIn =new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		d = new int[n+1];
+//		solve(n);
+//	}
+//	static void solve(int n) {
+//		if(n<=1) {
+//			System.out.println(n);
+//			return;
+//		}
+//		d[1] = 1;
+//		d[2] = 3;
+//		for(int i=3;i<=n;i++) {
+//			d[i] = d[i-1] + d[i-2]*2;
+//			d[i] %= mod;
+//		}
+//		System.out.println(d[n]);;
+//	}
+//}

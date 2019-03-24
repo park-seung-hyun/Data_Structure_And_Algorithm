@@ -30,6 +30,7 @@ public class BJ1707 {
 		}
 	}
 	static boolean solve(int n) {
+		// 그래프의 연결요소가 1개라는 말이 없으므로 전체 정점에 대해 다 해봐야됨.
 		for(int i=1;i<=n;i++) {
 			if(visited[i] == 0) {
 				visited[i] = 1;
@@ -47,9 +48,10 @@ public class BJ1707 {
 			int h = q.remove();
 			for(int i : adj[h]) {
 				if(visited[i] == 0) {
+					// 이전 것의 반대로 색칠 
 					visited[i] = 3 - visited[h];
 					q.add(i);
-				}else if(visited[i]==visited[h]) {
+				}else if(visited[i]==visited[h]) { // 색이 같은 경우 
 					return false;
 				}
 			}

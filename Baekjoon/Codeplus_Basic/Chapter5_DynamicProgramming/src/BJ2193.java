@@ -35,3 +35,35 @@ public class BJ2193 {
 		return d2[n];
 	}
 }
+
+//public class BJ2193{
+//	static long[][] d = new long[91][2];
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		dp();
+//		int n = stdIn.nextInt();
+//		System.out.println(d[n][0] + d[n][1]);;
+//	}
+//	static void dp() {
+//		d[1][1] = 1;
+//		for(int i=2;i<=90;i++) {
+//			d[i][1] = d[i-1][0];
+//			d[i][0] = d[i-1][1] + d[i-1][0];
+//		}
+//	}
+//}
+//public class BJ2193{
+//	static long[] d = new long[91];
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		dp();
+//		int n = stdIn.nextInt();
+//		System.out.println(d[n]);
+//	}
+//	static void dp() {
+//		d[1] = 1;
+//		for(int i=2;i<=90;i++) {
+//			d[i] = d[i-1] + d[i-2];
+//		}
+//	}
+//}
