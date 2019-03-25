@@ -9,7 +9,6 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
-
 public class BJ1260{
 	static ArrayList<Integer>[] al;
 	static boolean[] visited;
