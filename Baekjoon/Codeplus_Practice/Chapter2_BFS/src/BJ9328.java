@@ -187,3 +187,108 @@ class Position{
 		this.y = y;
 	}
 }
+
+//public class BJ9328{
+//	static char[][] map;
+//	static int[][] visited;
+//	static String key = "";
+//	static int[] dx = {0,0,1,-1};
+//	static int[] dy = {1,-1,0,0};
+//	public static void main (String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int t = stdIn.nextInt();
+//		for(int i=0;i<t;i++) {
+//			int w = stdIn.nextInt();
+//			int h = stdIn.nextInt();
+//			map = new char[w+2][h+2];
+//			visited = new int[w+2][h+2];
+//			stdIn.nextLine();
+//			for(int j=0;j<w+2;j++) {
+//				for(int k=0;k<h+2;k++) {
+//					map[j][k] = '.';
+//				}
+//			}
+//			for(int j=1;j<=w;j++) {
+//				String s = stdIn.nextLine();
+//				for(int k=1;k<=h;k++) {
+//					map[j][k] = s.charAt(k-1);
+//				}
+//			}
+//			key = stdIn.nextLine();
+//			if(key.equals("0")) key = "";
+//			solve(w,h);
+//		}
+//	}
+//	static void solve(int w, int h) {
+//		
+//		
+//		ArrayList<Character> keyWallet = new ArrayList<Character>();
+//		for(char c: key.toCharArray()) {
+//			keyWallet.add(c);
+//		}
+//		
+//		Queue<W2>[] qa = new LinkedList[26];
+//		for(int i=0;i<26;i++) qa[i] = new LinkedList<W2>();
+//		Queue<W2> q = new LinkedList<W2>();
+//		q.add(new W2(0,0));
+//		visited[0][0] = 1;
+//		int Doc = 0;
+//		while(!q.isEmpty()) {
+//			
+//			W2 r = q.remove();
+//			int x = r.x;
+//			int y = r.y;
+//			for(int i=0;i<4;i++) {
+//				int nx = x+ dx[i];
+//				int ny = y+ dy[i];
+//				
+//				if(nx>=0 && ny>=0 && nx <w+2 && ny<h+2) {
+//					
+//					if(visited[nx][ny] == 0) {
+//						if(map[nx][ny] == '.') {
+//							q.add(new W2(nx,ny));
+//							visited[nx][ny] = 1;
+//						}
+//						if(map[nx][ny] == '$') {
+//							q.add(new W2(nx,ny));
+//							visited[nx][ny] = 1;
+//							Doc++;
+//						}
+//						if(map[nx][ny]>='a' && map[nx][ny]<='z') {
+//							q.add(new W2(nx,ny));
+//							visited[nx][ny] = 1;
+//							keyWallet.add(map[nx][ny]);
+//							while(!qa[map[nx][ny]-'a'].isEmpty()) {
+//								q.add(qa[map[nx][ny]-'a'].remove());
+//							}
+//						}
+//						if(map[nx][ny]>='A' && map[nx][ny]<='Z' ) {
+//					
+//							if(keyWallet.contains(Character.toLowerCase(map[nx][ny]))) {	
+//								q.add(new W2(nx,ny));
+//								visited[nx][ny] = 1;
+//							}else {
+//								qa[map[nx][ny] - 'A'].add(new W2(nx,ny));
+//								visited[nx][ny] = 1;
+//							}
+//						}
+//						
+//					}
+//				}
+//			}
+//			
+//			
+//			
+//		}
+//		System.out.println(Doc);
+//
+//	}
+//}
+//class W2{
+//	int x;
+//	int y;
+//	W2(int x, int y){
+//		this.x =x;
+//		this.y =y;
+//	}
+//}

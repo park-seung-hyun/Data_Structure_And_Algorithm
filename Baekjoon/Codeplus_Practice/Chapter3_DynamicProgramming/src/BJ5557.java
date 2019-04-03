@@ -1,5 +1,8 @@
-import java.util.Scanner;
+// 15557번
+// 1학년     
+// DP
 
+import java.util.Scanner;
 public class BJ5557 {
 	static int[] num;
 	static long[][] d;
@@ -11,7 +14,19 @@ public class BJ5557 {
 		for(int i=0;i<n;i++) {
 			num[i] = stdIn.nextInt();
 		}
-		solve(n);
+		solve2(n);
+	}
+	static void solve2(int n) {
+		d[0][num[0]] = 1;
+		for(int i=1;i<n-1;i++) {
+			for(int j=0;j<=20;j++) {
+				if(j-num[i] >=0)
+					d[i][j] += d[i-1][j-num[i]];
+				if(j+num[i] <= 20)
+					d[i][j] += d[i-1][j+num[i]];
+			}
+		}
+		System.out.println(d[n-2][num[n-1]]);
 	}
 	static void solve(int n) {
 		int ans = num[n-1];
@@ -27,12 +42,5 @@ public class BJ5557 {
 			}
 		}
 		System.out.println(d[n-2][ans]);
-//		for(int i=0;i<n;i++) {
-//			for(int j=0;j<=20;j++) {
-//				System.out.printf("%d ", d[i][j]);
-//			}
-//			System.out.println();
-//		}
-		
 	}
 }

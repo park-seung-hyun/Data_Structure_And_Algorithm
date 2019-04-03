@@ -4,6 +4,7 @@
 // 배열의 인덱스로 숫자가 허용이 안됨. -> HashMap 사용 
 // 굳이 배열로 바꿀 필요없음. x = n/3, y = n%3  <-> n = x*3+y 
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -161,3 +162,73 @@ public class BJ1525 {
 		}
 	}
 }
+
+//public class BJ1525{
+//	static HashMap<String, Integer> hm = new HashMap<String, Integer>();
+//	static final int[] dx = {0,0,1,-1};
+//	static final int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		String s= "";
+//		for(int i=0;i<9;i++) {
+//			s += stdIn.nextInt();
+//		}
+//		solve(s);
+//	}	
+//	static void solve(String s) {
+//		hm.put(s, 0);
+//		Queue<String> q= new LinkedList<String>();
+//		q.add(s);
+//		while(!q.isEmpty()) {
+//			String h = q.remove();
+//			if(h.equals("123456780")) {
+//				break;
+//			}
+//			puzzle(h,q);
+//		}
+//		if(hm.containsKey("123456780")) {
+//			System.out.println(hm.get("123456780"));
+//		}else {
+//			System.out.println(-1);
+//		}
+//	}
+//	static char[] swap(char[] ca, int id1, int id2) {
+//		char temp = ca[id1];
+//		ca[id1] = ca[id2];
+//		ca[id2] = temp;
+//		return ca;
+//	}
+//	static void swap2(StringBuilder sb, int id1, int id2) {
+//		char temp = sb.charAt(id1);
+//		sb.setCharAt(id1, sb.charAt(id2));
+//		sb.setCharAt(id2, temp);
+//	}
+//	static void puzzle(String s, Queue<String> q) {
+//		char[] ca = s.toCharArray();	
+//		for(int i=0;i<3;i++) {
+//			for(int j=0;j<3;j++) {
+//				if(!(ca[i*3+j] == '0')) continue;
+//				for(int k=0;k<4;k++) {
+//					int nx = i + dx[k];
+//					int ny = j + dy[k];
+//					if(nx>=0 && ny>=0 && nx <3&& ny<3) {
+//						
+//						StringBuilder sb= new StringBuilder(s);
+//						swap2(sb,i*3+j, nx*3+ny);
+//						String ns = sb.toString();
+//						
+////						char[] temp = ca.clone();
+////						char[] nca = swap(temp,i*3+j, nx*3+ny);
+////						String ns = String.valueOf(nca);
+//						if(!hm.containsKey(ns)) {
+//							q.add(ns);
+//							hm.put(ns, hm.get(s)+1);
+//						}
+//					}
+//				}
+//			}
+//		}
+//		
+//		
+//	}
+//}

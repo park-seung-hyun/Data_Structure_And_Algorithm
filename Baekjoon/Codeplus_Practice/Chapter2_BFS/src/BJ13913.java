@@ -56,3 +56,46 @@ public class BJ13913 {
 		System.out.printf("%d ", n);
 	}
 }
+//public class BJ13913{
+//	static int[] visited = new int[100001];
+//	static int[] track = new int[100001];
+//	public static void main (String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int n= stdIn.nextInt();
+//		int k= stdIn.nextInt();
+//		solve(n,k);
+//		System.out.println(visited[k]-1);
+//		trackNum(k);
+//	}
+//	static void trackNum(int n) {
+//		if(n == -1) return;
+//		trackNum(track[n]);
+//		System.out.printf("%d ",n);
+//	}
+//	static void solve(int n, int k) {
+//		Queue<Integer> q = new LinkedList<Integer>();
+//		q.add(n);
+//		visited[n] = 1;
+//		track[n] = -1;
+//		while(!q.isEmpty()) {
+//			int h = q.remove();
+//			if(h == k) break;
+//			if(h-1>=0 && visited[h-1] == 0) {
+//				q.add(h-1);
+//				visited[h-1] = visited[h] + 1;
+//				track[h-1] = h;
+//			}
+//			if(h+1<=100000 && visited[h+1] == 0) {
+//				q.add(h+1);
+//				visited[h+1] = visited[h] + 1;
+//				track[h+1] = h;
+//			}
+//			if(h*2<=100000 && visited[h*2] == 0) {
+//				q.add(h*2);
+//				visited[h*2] = visited[h] + 1;
+//				track[h*2] = h;
+//			}
+//		}
+//	}
+//}
+//

@@ -85,3 +85,66 @@ class Pos3{
 		this.y =y;
 	}
 }
+
+//public class BJ6087{
+//	static char[][] map;
+//	static int[][] visited;
+//	static final int[] dx = {0,0,1,-1};
+//	static final int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int h = stdIn.nextInt();
+//		int w = stdIn.nextInt();
+//		map = new char[w][h];
+//		stdIn.nextLine();
+//		for(int i=0;i<w;i++) {
+//			String s = stdIn.nextLine();
+//			for(int j=0;j<h;j++) {
+//				map[i][j] = s.charAt(j);
+//			}
+//		}
+//		solve(w,h);
+//	}
+//	static void solve(int w, int h) {
+//		Queue<Pos3> q = new LinkedList<Pos3>();
+//		visited = new int[w][h];
+//		for(int i=0;i<w;i++) Arrays.fill(visited[i],-1);
+//		boolean flag = false;
+//		for(int i=0;i<w;i++) {
+//			for(int j=0;j<h;j++) {
+//				if(map[i][j] == 'C') {
+//					map[i][j] = '.';
+//					q.add(new Pos3(i,j));
+//					visited[i][j] = 0;
+//					flag = true;
+//					break;
+//				}
+//			}
+//			if(flag == true) {
+//				break;
+//			}
+//		}
+//		while(!q.isEmpty()) {
+//			Pos3 r = q.remove();
+//			int x = r.x;
+//			int y = r.y;
+//			if(map[x][y] == 'C') {
+//				System.out.println(visited[x][y] - 1);
+//				break;
+//			}
+//			for(int i=0;i<4;i++) {
+//				int nx = x + dx[i];
+//				int ny = y + dy[i];
+//				while(nx >=0 && ny >=0 && nx < w && ny < h && map[nx][ny] != '*') {
+//					if(visited[nx][ny] == -1 ) {
+//						q.add(new Pos3(nx,ny));
+//						visited[nx][ny] = visited[x][y] + 1;
+//					}
+//					nx += dx[i];
+//					ny += dy[i];
+//				}
+//			}
+//			
+//		}
+//	}
+//}

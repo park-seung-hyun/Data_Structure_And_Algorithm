@@ -1,9 +1,10 @@
-// BJ11048번 
+// 11048번 
 // 이동하기  
 // DP
 // BFS로 시도했으나 visited가 의미없어 시간초과 뜸.
 // 이전 칸 (3개)의 Max값이 해당 칸에서도 유효함. -> DP가 가능함. (아닐경우 BF)
 
+import java.util.Arrays;
 import java.util.Scanner;
 public class BJ11048 {
 	static int[][] map;
@@ -19,21 +20,53 @@ public class BJ11048 {
 				map[i][j] = stdIn.nextInt();
 			}
 		}
-		dp(n,m);
+		// Bottom-Up
+//		dp(n,m);
+		dp2(n,m);
+		
+		// Top-Down
+//		for(int i=0;i<=n;i++) Arrays.fill(d[i], -1);
+//		dp3(n,m);
+//		System.out.println(d[n][m]);
 	}
+	// Bottom-Up
 	static void dp(int n, int m) {
-
 		for(int i=1;i<=n;i++) {
 			for(int j=1;j<=m;j++) {
-				d[i][j] = max(d[i-1][j],d[i][j-1],d[i-1][j-1]) + map[i][j];
+				// 최대값을 구하는 문제에서 대각선은 무시해도됨.
+				// 옆으로, 아래로 보다 무조건 대각선이 비용이 더 작음.
+				d[i][j] = max2(d[i-1][j], d[i][j-1]) + map[i][j];
 			}
 		}
 		System.out.println(d[n][m]);
 	}
-	static int max(int a, int b,int c) {
+	static void dp2(int n, int m) {
+		for(int i=0;i<=n;i++) {
+			for(int j=0;j<=m;j++) {	
+				if(i+1 <= n)
+					d[i+1][j] = max2(d[i+1][j], d[i][j] + map[i+1][j]);
+				if(j+1 <= m)
+					d[i][j+1] = max2(d[i][j+1], d[i][j] + map[i][j+1]);
+			}
+		}
+		System.out.println(d[n][m]);
+	}
+	// Top-Down 
+	static int dp3(int i, int j) {
+		if(i <1 || j <1) return 0;
+		if(d[i][j] != -1) return d[i][j];
+		d[i][j] = max2(dp3(i-1, j), dp3(i, j-1)) + map[i][j];
+		return d[i][j];
+	}
+	static int max3(int a, int b,int c) {
 		int max = a;
 		if(b>max) max = b;
 		if(c>max) max = c;
+		return max;
+	}
+	static int max2(int a, int b) {
+		int max = a;
+		if(max < b) max = b;
 		return max;
 	}
 }

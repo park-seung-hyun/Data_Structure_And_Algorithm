@@ -3,6 +3,9 @@
 // BFS
 // Deque 사용
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -153,3 +156,129 @@ class Pos{
 	}
 }
 
+//public class BJ9376 {
+//	
+//	static char[][] map;
+//	static int[][] visited;
+//	static int[][] visited2;
+//	static int[][] visited3;
+//	static int[] dx = {0,0,1,-1};
+//	static int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn = new Scanner(System.in);
+//		int t = stdIn.nextInt();
+//		for(int i=0;i<t;i++) {
+//			int w = stdIn.nextInt();
+//			int h = stdIn.nextInt();
+//			map = new char[w+2][h+2];
+//			visited = new int[w+2][h+2];
+//			visited2 = new int[w+2][h+2];
+//			visited3 = new int[w+2][h+2];
+//			stdIn.nextLine();
+//		
+//			for(int j=0;j<=w+1;j++) {
+//				for(int m=0;m<=h+1;m++) {
+//					map[j][m] = '.';
+//				}
+//			}
+//			
+//			for(int j=1;j<=w;j++) {
+//				String s =  stdIn.nextLine();
+//				for(int m=1;m<=h;m++) {
+//					map[j][m] = s.charAt(m-1);
+//				}
+//			}	
+//
+//			solve(w,h);
+//		}
+//	}
+//	static void bfs(int x, int y, int w, int h, int which) {
+//		int[][][] v = {visited, visited2, visited3};
+//		ArrayDeque<P> dq = new ArrayDeque<P>();
+//		dq.add(new P(x,y));
+//		v[which][x][y] = 1;
+//		while(!dq.isEmpty()) {
+//			P r = dq.remove();
+//			int ox = r.x;
+//			int oy = r.y;
+//			for(int i=0;i<4;i++) {
+//				int nx = ox + dx[i];
+//				int ny = oy + dy[i];
+//				if(nx >= 0 && ny >= 0 && nx < w+2 && ny < h+2) {
+//					if(v[which][nx][ny] == 0) {
+//						
+//						if(map[nx][ny] == '.' || map[nx][ny] == '$') {
+//							dq.addFirst(new P(nx, ny));
+//							v[which][nx][ny] = v[which][ox][oy];
+//						}
+//						if(map[nx][ny] == '#') {
+//							dq.addLast(new P(nx, ny));
+//							v[which][nx][ny] = v[which][ox][oy] + 1;
+//						}
+//
+//					}
+//					
+//				}
+//			}
+//			
+//		}
+//		visited = v[0];
+//		visited2 = v[1];
+//		visited3 = v[2];
+//	}
+//	static void solve(int w, int h) {
+//		bfs(0,0,w,h,0);
+//		int cnt = 0;
+//		for(int i=0;i<w+2;i++) {
+//			for(int j=0;j<h+2;j++) {
+//				if(map[i][j] == '$') {
+//					if(cnt == 0) {
+//						bfs(i,j,w,h,1);
+//						cnt++;
+//					}else {
+//						bfs(i,j,w,h,2);
+//					}
+//				}
+//			}
+//		}
+//		
+//		int[][][] v= {visited, visited2,visited3};
+////		for(int k=0;k<3;k++) {
+////			for(int i=0;i<w+2;i++) {
+////				for(int j=0;j<h+2;j++) {
+////					System.out.printf("%d ", v[k][i][j]);
+////				}
+////				System.out.println();
+////			}
+////			System.out.println();
+////			System.out.println();
+////		}
+//		
+//		int min = Integer.MAX_VALUE;
+//		
+//		for(int i=0;i<w+2;i++) {
+//			for(int j=0;j<w+2;j++) {
+//				if(map[i][j] != '*' && visited[i][j] != 0) {
+//					int sum = 0;
+//					for(int k=0;k<3;k++) {
+//						sum += v[k][i][j] - 1;
+//					}
+//					if(map[i][j] == '#') sum -= 2;
+//					if(sum < min) min = sum;
+//				}
+//			
+//			}
+//		}
+//		System.out.println(min);
+//		
+//	}
+//}
+//class P{
+//	int x;
+//	int y;
+//	P(int x, int y){
+//		this.x = x;
+//		this.y = y;
+//	}
+//}
+//

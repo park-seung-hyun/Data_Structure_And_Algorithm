@@ -93,3 +93,56 @@ public class BJ12851 {
 
 	}
 }
+
+
+//public class BJ12851{
+//	static int[] visited = new int[100001];
+//	static int[] count = new int[100001];
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int n= stdIn.nextInt();
+//		int k= stdIn.nextInt();
+//		solve(n,k);
+//	}
+//	static void solve(int n, int k) {
+//		Queue<Integer> q = new LinkedList<Integer>();
+//		q.add(n);
+//		visited[n] = 1;
+//		count[n] = 1;
+//	
+//		while(!q.isEmpty()) {
+//			int h = q.remove();
+//		
+//			if(h-1>=0) {
+//				if(visited[h-1] == 0) {
+//					q.add(h-1);
+//					visited[h-1] = visited[h] + 1;
+//					count[h-1] += count[h];
+//				}else if(visited[h-1] == visited[h] + 1 ) {
+//					count[h-1] += count[h];
+//				}
+//			}
+//			if(h+1<=100000) {
+//				if(visited[h+1] == 0) {
+//					q.add(h+1);
+//					visited[h+1] = visited[h] + 1;
+//					count[h+1] += count[h];
+//				}else if(visited[h+1] == visited[h] + 1 ) {
+//					count[h+1] += count[h];
+//				}
+//
+//			}
+//			if(h*2<=100000) {
+//				if(visited[h*2] == 0) {
+//					q.add(h*2);
+//					visited[h*2] = visited[h] + 1;
+//					count[h*2] += count[h];
+//				}else if(visited[h*2] == visited[h] + 1) {
+//					count[h*2] += count[h];
+//				}
+//			}
+//		}
+//		System.out.println(visited[k]-1);
+//		System.out.println(count[k]);
+//	}
+//}
