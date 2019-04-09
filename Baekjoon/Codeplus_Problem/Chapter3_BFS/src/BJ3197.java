@@ -1,136 +1,139 @@
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+// 3197번
+// 백조의 호수 
+// BFS 
 
-public class BJ3197 {
-	static char[][] map;
-	static int[][] visited; // 물이 차오르는 속도 
-	static boolean[][] visited2; // 백조 -> 백조 시간 
-	static int[] dx = {0,0,1,-1};
-	static int[] dy = {1,-1,0,0};
-	public static void main(String[] args) {
-		Scanner stdIn= new Scanner(System.in);
-		int r = stdIn.nextInt();
-		int c = stdIn.nextInt();
-		stdIn.nextLine();
-		map = new char[r][c];
-		visited = new int[r][c];
-		visited2 = new boolean[r][c];
-		for(int i=0;i<r;i++) {
-			String s =stdIn.nextLine();
-			for(int j=0;j<c;j++) {
-				map[i][j] = s.charAt(j);
-			}
-		}
-		solve(r,c);
-	}
-	static void solve(int r, int c) {
-		
-		// 물이 차는 시간 계
-		Queue<Water> q = new LinkedList<Water>();
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
-				if(map[i][j] != 'X') {
-					q.add(new Water(i,j));
-					visited[i][j] = 1;
-				}
-			}
-		}
-		while(!q.isEmpty()) {
-			Water h = q.remove();
-			int x = h.x;
-			int y = h.y;
-			for(int i=0;i<4;i++) {
-				int nx = x + dx[i];
-				int ny = y + dy[i];
-				if(nx>=0 && ny >=0 && nx < r && ny < c) {
-					if(visited[nx][ny] == 0) {
-						q.add(new Water(nx,ny));
-						visited[nx][ny] = visited[x][y] + 1;
-					}
-				}
-			}
-		}
-		
-		// 백조 투더 백조 
-		ArrayDeque<Water2> dq = new ArrayDeque<Water2>();
-		for(int i=0;i<r;i++) {
-			boolean flag = false;
-			for(int j=0;j<c;j++) {
-				if(map[i][j] == 'L') {
-					// 첫 백조 dq에 삽입 
-					dq.addFirst(new Water2(i,j,0));
-					map[i][j] = '.';
-					visited2[i][j] = true;
-					flag = true;
-					break;
-				}
-			}
-			if(flag == true) break;
-		}
-		while(!dq.isEmpty()) {
-			Water2 h = dq.removeFirst();
-			int x = h.x;
-			int y = h.y;
-			int t = h.t;
-			if(map[x][y] == 'L') { // 백조 발견 
-				System.out.println(t);
-//				return;
-			}
-			for(int i=0;i<4;i++) {
-				int nx = x + dx[i];
-				int ny = y + dy[i];
-				if(nx>=0 && ny >=0 && nx < r && ny < c) {
-					if(visited[nx][ny] <= visited[x][y]) {
-						if(visited2[nx][ny] == false) {
-							dq.addFirst(new Water2(nx,ny,t));
-							visited2[nx][ny] = true;
-						}
-					}
-					else {
-						if(visited2[nx][ny] == false) {
-							dq.addLast(new Water2(nx,ny,t+1));
-							visited2[nx][ny] = true;
-						}
-					}
-				}
-			}
-		}
-		for(int i=0;i<r;i++) {
-			for(int j=0;j<c;j++) {
-				System.out.printf("%d ", visited[i][j]);
-			}
-			System.out.println();;
-		}
-//		System.out.println();;
+//import java.util.ArrayDeque;
+//import java.util.LinkedList;
+//import java.util.Queue;
+//import java.util.Scanner;
+//public class BJ3197 {
+//	static char[][] map;
+//	static int[][] visited; // 물이 차오르는 속도 
+//	static boolean[][] visited2; // 백조 -> 백조 시간 
+//	static int[] dx = {0,0,1,-1};
+//	static int[] dy = {1,-1,0,0};
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int r = stdIn.nextInt();
+//		int c = stdIn.nextInt();
+//		stdIn.nextLine();
+//		map = new char[r][c];
+//		visited = new int[r][c];
+//		visited2 = new boolean[r][c];
+//		for(int i=0;i<r;i++) {
+//			String s =stdIn.nextLine();
+//			for(int j=0;j<c;j++) {
+//				map[i][j] = s.charAt(j);
+//			}
+//		}
+//		solve(r,c);
+//	}
+//	static void solve(int r, int c) {
+//		
+//		// 물이 차는 시간 계
+//		Queue<Water> q = new LinkedList<Water>();
 //		for(int i=0;i<r;i++) {
 //			for(int j=0;j<c;j++) {
-//				System.out.printf("%d ", visited2[i][j]);
+//				if(map[i][j] != 'X') {
+//					q.add(new Water(i,j));
+//					visited[i][j] = 1;
+//				}
+//			}
+//		}
+//		while(!q.isEmpty()) {
+//			Water h = q.remove();
+//			int x = h.x;
+//			int y = h.y;
+//			for(int i=0;i<4;i++) {
+//				int nx = x + dx[i];
+//				int ny = y + dy[i];
+//				if(nx>=0 && ny >=0 && nx < r && ny < c) {
+//					if(visited[nx][ny] == 0) {
+//						q.add(new Water(nx,ny));
+//						visited[nx][ny] = visited[x][y] + 1;
+//					}
+//				}
+//			}
+//		}
+//		
+//		// 백조 투더 백조 
+//		ArrayDeque<Water2> dq = new ArrayDeque<Water2>();
+//		for(int i=0;i<r;i++) {
+//			boolean flag = false;
+//			for(int j=0;j<c;j++) {
+//				if(map[i][j] == 'L') {
+//					// 첫 백조 dq에 삽입 
+//					dq.addFirst(new Water2(i,j,0));
+//					map[i][j] = '.';
+//					visited2[i][j] = true;
+//					flag = true;
+//					break;
+//				}
+//			}
+//			if(flag == true) break;
+//		}
+//		while(!dq.isEmpty()) {
+//			Water2 h = dq.removeFirst();
+//			int x = h.x;
+//			int y = h.y;
+//			int t = h.t;
+//			if(map[x][y] == 'L') { // 백조 발견 
+//				System.out.println(t);
+////				return;
+//			}
+//			for(int i=0;i<4;i++) {
+//				int nx = x + dx[i];
+//				int ny = y + dy[i];
+//				if(nx>=0 && ny >=0 && nx < r && ny < c) {
+//					if(visited[nx][ny] <= visited[x][y]) {
+//						if(visited2[nx][ny] == false) {
+//							dq.addFirst(new Water2(nx,ny,t));
+//							visited2[nx][ny] = true;
+//						}
+//					}
+//					else {
+//						if(visited2[nx][ny] == false) {
+//							dq.addLast(new Water2(nx,ny,t+1));
+//							visited2[nx][ny] = true;
+//						}
+//					}
+//				}
+//			}
+//		}
+//		for(int i=0;i<r;i++) {
+//			for(int j=0;j<c;j++) {
+//				System.out.printf("%d ", visited[i][j]);
 //			}
 //			System.out.println();;
 //		}
-		
-	}
-}
-class Water{
-	int x;
-	int y;
-	Water(int x,int y){
-		this.x = x;
-		this.y = y;
-	}
-}
-class Water2{
-	int x;
-	int y;
-	int t;
-	Water2(int x,int y, int t){
-		this.x = x;
-		this.y = y;
-		this.t=t ;
-	}
-}
+////		System.out.println();;
+////		for(int i=0;i<r;i++) {
+////			for(int j=0;j<c;j++) {
+////				System.out.printf("%d ", visited2[i][j]);
+////			}
+////			System.out.println();;
+////		}
+//		
+//	}
+//}
+//class Water{
+//	int x;
+//	int y;
+//	Water(int x,int y){
+//		this.x = x;
+//		this.y = y;
+//	}
+//}
+//class Water2{
+//	int x;
+//	int y;
+//	int t;
+//	Water2(int x,int y, int t){
+//		this.x = x;
+//		this.y = y;
+//		this.t=t ;
+//	}
+//}
 
 //import java.util.LinkedList;
 //import java.util.Queue;
@@ -275,3 +278,138 @@ class Water2{
 //		this.y = y;
 //	}
 //}
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+public class BJ3197{
+	static int[] dx = {-1,0,1,0};
+	static int[] dy = {0,1,0,-1};
+	static char[][] map;
+	static int[][] visited;
+	static int[][] visited2;
+	public static void main(String[] args) {
+		Scanner stdIn= new Scanner(System.in);
+		int r = stdIn.nextInt();
+		int c = stdIn.nextInt();
+		stdIn.nextLine();
+		map = new char[r][c];
+		for(int i=0;i<r;i++) {
+			String s = stdIn.nextLine();
+			for(int j=0;j<c;j++) {
+				map[i][j] = s.charAt(j);
+			}
+		}
+		
+		visited = new int[r][c];
+		for(int i=0;i<r;i++) Arrays.fill(visited[i], -1);
+		visited2 = new int[r][c];
+		for(int i=0;i<r;i++) Arrays.fill(visited2[i], -1);
+		
+		
+		Queue<Water> q = new LinkedList<Water>();
+		Queue<Water> q1 = new LinkedList<Water>();
+		Queue<Bird> q2 = new LinkedList<Bird>();
+		Queue<Bird> q3 = new LinkedList<Bird>();
+		
+		int bx2 = 0;
+		int by2 = 0;
+		int cnt = 0;
+		for(int i=0;i<r;i++) {
+			for(int j=0;j<c;j++) {
+				if(map[i][j] == 'L' && cnt == 0) {
+					cnt++;
+					q2.add(new Bird(i,j));
+					visited2[i][j] = 0;
+					map[i][j] = '.';
+				}
+				if(map[i][j] == 'L' && cnt == 1) {
+					bx2 = i;
+					by2 = j;
+					map[i][j] = '.';
+				}
+			}
+		}
+		
+		for(int i=0;i<r;i++) {
+			for(int j=0;j<c;j++) {
+				if(map[i][j] == '.') {
+					visited[i][j] = 0;
+					q.add(new Water(i,j,0));
+				}
+			}
+		}
+
+		int time = 0;
+		while(true) {
+			while(!q.isEmpty()) {
+				Water h = q.remove();
+				int x = h.x;
+				int y = h.y;
+				int t = h.t;
+				time = t;
+				for(int i=0;i<4;i++) {
+					int nx = x + dx[i];
+					int ny = y + dy[i];
+					if(nx >=0 && ny >=0 && nx < r && ny < c) {
+						if(visited[nx][ny] == -1) {
+							q1.add(new Water(nx,ny,t+1));
+							visited[nx][ny] = 0;
+							map[nx][ny] = '.';
+						}
+					}
+				}
+				
+			}
+			while(!q2.isEmpty()) {
+				Bird bh = q2.remove();
+				int bx = bh.x;
+				int by = bh.y;
+				
+				if(bx == bx2 && by == by2) {
+					System.out.println(time+1);
+					return;
+				}
+				for(int i=0;i<4;i++) {
+					int nx = bx + dx[i];
+					int ny = by + dy[i];
+					if(nx >=0 && ny >=0 && nx < r && ny < c) {
+						if(visited2[nx][ny] == -1) {
+							if(map[nx][ny] == '.') {
+								q2.add(new Bird(nx,ny));
+								visited2[nx][ny] = 0;
+							}else if(map[nx][ny] == 'X') {
+								q3.add(new Bird(nx,ny));
+								visited2[nx][ny] = 0;
+							}
+						}
+					}
+				}
+			}
+			q = q1;
+			q1 = new LinkedList<Water>();
+			q2 = q3;
+			q3 = new LinkedList<Bird>();
+		}
+		
+	}
+}
+class Water{
+	int x;
+	int y;
+	int t;
+	Water(int x, int y, int t){
+		this.x = x;
+		this.y = y;
+		this.t= t;
+	}
+}
+class Bird{
+	int x;
+	int y;
+	Bird(int x, int y){
+		this.x = x;
+		this.y = y;
+	}
+}

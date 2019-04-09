@@ -54,3 +54,40 @@ public class BJ1182 {
 		return num;
 	}
 }
+//public class BJ1182{
+//	static int[] num;
+//	public static void main(String[] args) {
+//		Scanner stdIn= new Scanner(System.in);
+//		int n = stdIn.nextInt();
+//		num = new int[n];
+//		int k= stdIn.nextInt();
+//		for(int i=0;i<n;i++) {
+//			num[i] = stdIn.nextInt();
+//		}
+////		solve(n,k);
+//		System.out.println(k == 0 ? solve2(0,n,k,0)-1 :solve2(0,n,k,0));
+//	}
+//	// BitSet
+//	static void solve(int n, int k) {
+//		int total = 0;
+//		for(int i=1;i<(1<<n);i++) {
+//			int sum = 0;
+//			for(int j=0;j<n;j++) {
+//				if((i & (1<<j)) != 0) {
+//					sum += num[j];
+//				}
+//			}
+//			if(sum == k) total ++;
+//		}
+//		System.out.println(total);
+//	}
+//	
+//	static int solve2(int i, int n, int k, int sum) {
+//		if(sum == k && i == n) return 1;
+//		if(i >= n) return 0;
+//		int ans = 0;
+//		ans += solve2(i+1,n, k, sum+num[i]);
+//		ans += solve2(i+1,n,k, sum);
+//		return ans;
+//	}
+//}

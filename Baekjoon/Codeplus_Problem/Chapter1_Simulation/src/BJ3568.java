@@ -2,6 +2,7 @@
 // iSharp
 // 시뮬레이션 
 // 문자열 놀이 
+
 import java.util.Scanner;
 import java.util.StringTokenizer;
 public class BJ3568 {
