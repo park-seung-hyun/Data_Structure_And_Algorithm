@@ -3,6 +3,7 @@
 // 사다리 조작 
 // 진짜 어려웠음.. 시간초과...
 // 재귀 부분에서 언제 사다리 검사를 하느냐가 관건..
+// N중 0~3개를 고르는데 index가 끝까지 도달한 후 검사 
 // 기존에는 매번 했는데 매우매우 비효율적 
 
 import java.util.ArrayList;
@@ -76,7 +77,7 @@ public class BJ15684 {
 		if(cnt > 3) return;
 		
 		// 문제의 부분 ..
-		// 매번 simulate를 들리는 게 아니라 
+		// 매번 simulate를 돌리는 게 아니라 
 		// 인덱스가 끝까지 갔을 경우에 
 		// 그 때 cnt가 0,1,2,3만 살아있을꺼임 그때 simulate 
 		if(index == al.size()) {

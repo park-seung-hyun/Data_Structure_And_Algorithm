@@ -4,6 +4,9 @@
 // 진짜 어려움..
 // 모든 집 <-> 치킨집 사이 거리를 계산 해놓는게 시간복잡도상 적게 걸림..
 
+// 순열 돌리면서 매번 bfs하는 거면 생각해봐야됨.
+// 치킨집이 바뀔 때마다 거리가 바뀌나?? 안바뀜 그러면 미리 거리들 구해놓고 시작..
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
