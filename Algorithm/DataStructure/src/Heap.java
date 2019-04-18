@@ -1,3 +1,4 @@
+// 힙  
 
 public class Heap {
 	static int[] array = new int[100];
