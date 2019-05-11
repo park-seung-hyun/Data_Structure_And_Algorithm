@@ -3,7 +3,10 @@
 
 import java.util.NoSuchElementException;
 public class Queue<T> {
+	
+	// 연결리스트로 구현하기 때문에 노드 클래스 구현
 	private static class QueueNode<T>{
+		// 각 노드는 해당 노드의 data 와 다음 노드 정보를 가짐. 
 		private T data;
 		private QueueNode next;
 		public QueueNode (T data) {
@@ -31,10 +34,12 @@ public class Queue<T> {
 		if(first == null) last = null;
 		return data;
 	}
+	// peek 
 	public T peek() {
 		if(first == null) throw new NoSuchElementException();
 		return first.data;
 	}
+	// isEmpty
 	public boolean isEmpty() {
 		return first == null;
 	}
